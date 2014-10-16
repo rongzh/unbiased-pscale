@@ -1,7 +1,7 @@
 unbiased-pscale
 ===============
 
-UnBIASeD (Universal Bayesian Iteratively And Systematically Determined) Pressure Scale Project
+UnBIASeD (Unified Bayesian Iterative And Systematically Determined) Pressure Scale Project
 
 Welcome to the home of the UnBIASeD pressure scale project!
 Our goal here is to continuously provide well calibrated pressure markers for high pressure and temperature experiments.
