@@ -1,0 +1,139 @@
+PRAGMA foreign_keys=OFF;
+BEGIN TRANSACTION;
+CREATE TABLE `Affiliation` (
+	`affilID`	TEXT,
+	`dept`	TEXT,
+	`org`	TEXT,
+	`city`	TEXT,
+	`country`	TEXT,
+	PRIMARY KEY(affilID)
+);
+CREATE TABLE "Author" (
+	`authorID`	TEXT,
+	`firstName`	TEXT,
+	`middleName`	TEXT,
+	`lastName`	TEXT,
+	`currentAffilID`	TEXT,
+	PRIMARY KEY(authorID)
+);
+CREATE TABLE `Material` (
+	`materialID`	TEXT,
+	`materialTypID`	TEXT,
+	`startMaterial`	TEXT,
+	`texture`	TEXT,
+	`isNatural`	INTEGER,
+	`isSolidSoln`	INTEGER,
+	`description`	TEXT,
+	PRIMARY KEY(materialID)
+);
+CREATE TABLE "ExpRunMaterial" (
+	`bibID`	TEXT,
+	`runID`	TEXT,
+	`materialID`	TEXT,
+	`details`	TEXT,
+	PRIMARY KEY(bibID,runID,materialID)
+);
+CREATE TABLE "ExpRunSetup" (
+	`bibID`	TEXT,
+	`runID`	TEXT,
+	`pressApparatus`	TEXT,
+	`pressMedium`	TEXT,
+	`tempCond`	TEXT,
+	`annealFreq`	TEXT,
+	`tempMeasTyp`	TEXT,
+	`thermIns`	INTEGER,
+	`laserAbsorb`	TEXT,
+	`details`	TEXT,
+	PRIMARY KEY(bibID,runID)
+);
+CREATE TABLE "MeasGeom" (
+	`measID`	TEXT,
+	`bibID`	TEXT,
+	`runID`	TEXT,
+	`materialID`	TEXT,
+	`acell`	REAL,
+	`acellErr`	REAL,
+	`bcell`	REAL,
+	`bcellErr`	REAL,
+	`ccell`	REAL,
+	`ccellErr`	REAL,
+	`alpha`	REAL,
+	`alphaErr`	REAL,
+	`beta`	REAL,
+	`betaErr`	REAL,
+	`gamma`	REAL,
+	`gammaErr`	REAL,
+	PRIMARY KEY(measID,bibID,runID,materialID)
+);
+CREATE TABLE "MaterialTyp" (
+	`materialTypID`	TEXT,
+	`name`	TEXT,
+	`description`	TEXT,
+	`xtalSym`	TEXT,
+	PRIMARY KEY(materialTypID)
+);
+CREATE TABLE "MeasPressEst" (
+	`measID`	TEXT,
+	`bibID`	TEXT,
+	`runID`	TEXT,
+	`pscaleID`	TEXT,
+	`press`	REAL,
+	`pressErr`	REAL,
+	PRIMARY KEY(measID,bibID,runID)
+);
+CREATE TABLE "Meas" (
+	`measID`	TEXT,
+	`bibID`	TEXT,
+	`runID`	TEXT,
+	`materialID`	TEXT,
+	`isPressMark`	INTEGER,
+	`measTyp`	TEXT,
+	`measVal`	REAL,
+	`measErr`	REAL,
+	`temp`	REAL,
+	`tempErr`	REAL,
+	PRIMARY KEY(measID,bibID,runID,materialID)
+);
+CREATE TABLE "PubAuthor" (
+	`bibID`	TEXT,
+	`authorPos`	INTEGER,
+	`authorID`	TEXT,
+	`affilID`	TEXT,
+	PRIMARY KEY(bibID,authorPos)
+);
+CREATE TABLE "PubDataSource" (
+	`bibID`	TEXT NOT NULL,
+	`firstAuthorID`	TEXT NOT NULL,
+	`year`	INTEGER NOT NULL,
+	`title`	INTEGER NOT NULL,
+	`journal`	TEXT,
+	`doi`	TEXT UNIQUE,
+	`url`	TEXT,
+	PRIMARY KEY(bibID)
+);
+CREATE TABLE "PressScl" (
+	`pscaleID`	TEXT NOT NULL,
+	`materialTypID`	TEXT NOT NULL,
+	`bibID`	TEXT NOT NULL,
+	`coldEosTypID`	TEXT,
+	`hotEosTypID`	TEXT,
+	`details`	TEXT,
+	PRIMARY KEY(pscaleID)
+);
+CREATE TABLE `EosTyp` (
+	`eosTypID`	TEXT,
+	`eosTermTyp`	TEXT,
+	`eqn`	TEXT,
+	`details`	TEXT,
+	PRIMARY KEY(eosTypID)
+);
+CREATE TABLE "PressSclParams" (
+	`pscaleID`	TEXT,
+	`paramName`	TEXT,
+	`paramVal`	REAL,
+	`eosTypID`	TEXT,
+	`isFixed`	INTEGER,
+	`details`	TEXT,
+	PRIMARY KEY(pscaleID,paramName)
+);
+COMMIT;
