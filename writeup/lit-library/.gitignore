@@ -1,0 +1,4 @@
+# symlink to personal pdf dir
+pdfdir
+# ignore jabref backup files
+*.bib.bak
