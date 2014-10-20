@@ -11,5 +11,8 @@ This enables a uniform approach to citations in collaborative documents.
 To enable jabRef (and other?) bibliographic utilities to find the pdf files corresponding to each citation, create a symlink (or alias) to your personal pdf directory.
 Name the symlink 'pdfdif', and jabRef will automatically be able to open your pdfs, while git will conveniently ignore this personal file.
 This is accomplished on Mac, Linux, or Unix machines with the following command inside the current directory:
-    ln -s path/to/pdf/dir pdfdir
+
+```
+ln -s path/to/pdf/dir pdfdir
+```
 
