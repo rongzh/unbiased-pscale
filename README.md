@@ -11,7 +11,7 @@ We approach this goal using a few major strategies:
 
 ##An Open Database of Mineral Physics Pressure-Scale Experiments
 In order to uniformly treat and analyze data across many different sources, it is crucial to convert it from its initial published state into a uniform and highly organized database.
-This is accomplished in two steps:
+This is accomplished in two steps:  
 1. Data is extracted from tables, figures, and text descriptions within a publication and put into easily analyzed csv text files
 2. The data is read into a python script that converts it to the required format and writes it to the project database
 
@@ -21,8 +21,7 @@ Reading data from the database into the statistical analysis code is performed b
 
 ###*Important Note*
 The SQLite database is *not* kept under version control directly (since it is a binary file), but rather is written to a text file using sqlite's *dump* command.
-This is accomplished simply by issuing the following command within the database directory after saving changes:
-
+This is accomplished simply by issuing the following command within the database directory after saving changes:  
 ```
 sqlite3 target_database_name.db .dump > target_database_name.bak
 ```
