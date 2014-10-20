@@ -22,7 +22,10 @@ Reading data from the database into the statistical analysis code is performed b
 ###*Important Note*
 The SQLite database is *not* kept under version control directly (since it is a binary file), but rather is written to a text file using sqlite's *dump* command.
 This is accomplished simply by issuing the following command within the database directory after saving changes:
-    sqlite3 target_database_name.db .dump > target_database_name.bak
+
+```
+sqlite3 target_database_name.db .dump > target_database_name.bak
+```
 
 ##Database Contributions are Welcome
 As this is an entirely open project, we welcome contributions to the database.
