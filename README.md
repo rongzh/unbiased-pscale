@@ -11,7 +11,8 @@ We approach this goal using a few major strategies:
 
 ##An Open Database of Mineral Physics Pressure-Scale Experiments
 In order to uniformly treat and analyze data across many different sources, it is crucial to convert it from its initial published state into a uniform and highly organized database.
-This is accomplished in two steps:  
+This is accomplished in two steps:
+
 1. Data is extracted from tables, figures, and text descriptions within a publication and put into easily analyzed csv text files
 2. The data is read into a python script that converts it to the required format and writes it to the project database
 
