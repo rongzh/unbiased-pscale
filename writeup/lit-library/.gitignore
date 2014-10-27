@@ -2,3 +2,6 @@
 pdfdir
 # ignore jabref backup files
 *.bib.bak
+
+# Ignore temporary html converted markdown files
+*.html
