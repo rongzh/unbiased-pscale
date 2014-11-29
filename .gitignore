@@ -8,3 +8,6 @@ __pycache__
 *.db
 #temp ipython notebook files
 .ipynb_checkpoints
+
+# temp files for vim python editing
+.ropeproject
