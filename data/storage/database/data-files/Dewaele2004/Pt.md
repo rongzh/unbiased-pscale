@@ -1,5 +1,5 @@
 ###Pt (Table 1)
-Temperature (K)|Au Pressure(GPa) | Volume(Å3)	 
+Temperature (K)|Au Pressure(GPa) | Volume(Å3)/at	 
 :---------------:|:-----------------:|:-------------:
 298|2.27|14.979
 298|3.44|14.921
