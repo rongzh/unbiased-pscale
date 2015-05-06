@@ -14,6 +14,7 @@ def debye_fun(x):
     if(np.isscalar(x)):
         assert x >= 0, 'x values must be greater than zero.'
     else:
+        #np.absolute(x)
         assert all(x >= 0), 'x values must be greater than zero.'
     # Lookup table
     # interpolate in log space where behavior is nearly linear
@@ -132,15 +133,17 @@ def MGD_PowerLawShifted(volume, temperature, p_eos, Natom):
   MGD = Vinet + P_th
   return MGD
 
-
+"""
 #test Dewaele's table
-#volume = np.array([13.697, 12.315, 10.845, 10.305, 7.827])
-#temperature = np.array([298,298,500,750,900])
-#print (MGD_Vinet(volume, temperature))
-
+p_eos = np.array([22.234,1.070,8.40,75.1,2.442,0.97])
+volume = np.array([13.69743329, 12.31533725, 10.845, 10.305, 7.827])
+temperature = np.array([298,298,500,750,900])
+print (MGD_PowerLawShifted(volume, temperature,p_eos,4))
+"""
 
 #plot Dewaele's table
  #sequence of the p_eos: V0, K0, Kp, theta0, gamma0, q
+"""
 p_eos = np.array([22.234,1.070,8.40,75.1,2.442,0.97])
 Nat = 1
 Nedat = np.loadtxt(fname='Ne.md', delimiter='|', skiprows=3)
@@ -214,7 +217,12 @@ plt.xlabel('Pressure [GPa]')
 plt.legend()
 plt.show()
 
-
+test298 = MGD_PowerLawShifted(vol_298,T[0]*np.ones(vol_298.shape),p_eos,1)
+#print "vol_298",vol_298
+#print test298
+print test298 - ob_298
+#print model_500 - ob_500
+"""
 #test Dr Wolf's table
 #volume = np.array([146.59, 145.81, 144.97, 144.32, 146.35, 131.26,142.52,133.96,125.42,133.86,133.91,133.71,125.42,125.40,124.05])
 #temperature = np.array([300,300,300,300,1700,300,1924,2375,2020,1755,1780,1740,2228,2240,2045])
