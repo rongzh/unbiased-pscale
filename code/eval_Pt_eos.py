@@ -113,4 +113,4 @@ print "result: ", result
 P_resi = MGD_PowerLaw(V_a, T_root, param_d) - p2
 print P_resi
 
-
+plt.plot(p2,P_resi,'x')
