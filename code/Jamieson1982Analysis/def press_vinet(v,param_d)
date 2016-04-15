@@ -1,0 +1,16 @@
+def press_vinet(v,param_d)
+
+def press_mgd_shiftedpowerlaw(v,t,param_d)
+
+#wrapper functions, taking usual para vectors
+def fitwrapper(p_eos, param_d, data_d)
+
+data_d['P']
+data_d['V']
+data_d['T']
+data_d['P_err_tot']
+data_d['P_err']
+data_d['T_err']
+data_d['V_err']
+#errors should be pressure errors 
+
